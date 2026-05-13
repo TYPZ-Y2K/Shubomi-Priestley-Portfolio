@@ -1,0 +1,71 @@
+<!-- Base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{% block title %}Shubomi Priestley's Portfolio{% endblock %}</title>
+
+    <meta name="description" content="Portfolio website for Shubomi Priestley, focused on full stack development, dashboards, authentication systems and scalable digital products.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+
+<!-- page specific css-->
+        {% block extra_css %}{% endblock %}
+
+</head>
+
+<body>
+
+    <nav class="site-nav">
+        <a href="{{ url_for('pages.home') }}">Home</a>
+        <a href="{{ url_for('pages.about') }}">About</a>
+        <a href="{{ url_for('pages.projects') }}">Projects</a>
+        <a href="{{ url_for('pages.services') }}">Services</a>
+        <a href="{{ url_for('pages.contact') }}">Contact</a>
+    </nav>
+
+    <!-- Flash messages -->
+    <div class="flash-container">
+        {% with msgs = get_flashed_messages(with_categories=True) %}
+            {% if msgs %}
+                <ul class="flash" aria-live="polite">
+                    {% for cat, msg in msgs %}
+                        <li class="flash-{{ cat }} flash-message">{{ msg }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-info">
+                <p>Copyright &copy; 2026 Shubomi Priestley</p>
+                <p>Email: shubomi.priestley@gmail.com</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="https://github.com/TYPZ-Y2K" class="btn btn-secondary">View GitHub</a>
+                <a href="https://www.linkedin.com/in/shubomi-priestley/" class="btn btn-secondary">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sienna Accessibility -->
+    <script src="{{ url_for('static', filename='js/sienna.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/accessibility-init.js') }}"></script>
+
+</body>
+</html>

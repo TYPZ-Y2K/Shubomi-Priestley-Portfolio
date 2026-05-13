@@ -1,0 +1,40 @@
+
+
+.section-panel {
+    background: rgba(79, 126, 203, 0.16);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 24px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+}
+
+.project-detail .section-panel {
+    padding: 28px 36px;
+}
+
+.project-detail ul {
+    margin-bottom: 0;
+}
+
+.project-detail li {
+    margin-bottom: 6px;
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.media-grid img,
+.project-video {
+    width: 100%;
+    border-radius: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: #020617;
+}
+
+.project-video {
+    margin-top: 20px;
+}

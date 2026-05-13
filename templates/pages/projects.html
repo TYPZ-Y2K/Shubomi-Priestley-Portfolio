@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block title %}Projects - Shubomi Priestley's Portfolio{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/projects.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<header class="hero">
+    <p class="eyebrow">Selected Work</p>
+
+    <h1>Projects</h1>
+
+    <p class="hero-text">
+        A selection of systems I have designed and developed, focused on real-world
+        functionality, clean architecture, user experience, and scalable system thinking.
+    </p>
+
+    <p class="hero-text">
+        Each project reflects a different area of my development journey, including
+        authentication, dashboards, booking systems, database design, testing,
+        accessibility, and full-stack application structure.
+    </p>
+</header>
+
+<section class="section-panel">
+    <div class="project-grid">
+
+        <div class="project-card">
+            <p class="project-type">Full-stack tourism & booking platform</p>
+            <h2>🦁 Riget Zoo Adventures</h2>
+
+            <p>
+                A tourism and booking platform designed for zoo visits, hotel reservations,
+                educational experiences, and admin booking management.
+            </p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li>Ticket booking</li>
+                <li>Hotel reservations</li>
+                <li>User authentication</li>
+                <li>Admin dashboard</li>
+                <li>QR booking management</li>
+                <li>Loyalty/rewards</li>
+            </ul>
+
+            <h3>Tech Stack</h3>
+            <ul class="chip-list">
+                <li>Python</li>
+                <li>Flask</li>
+                <li>HTML/CSS</li>
+                <li>JavaScript</li>
+                <li>SQLite</li>
+                <li>Git</li>
+            </ul>
+
+            <a href="{{ url_for('pages.project_detail', slug='Riget-Zoo') }}" class="btn">View Project</a>
+        </div>
+
+        <div class="project-card">
+            <p class="project-type">Education platform</p>
+            <h2>📚 GibJohn Tutoring Platform</h2>
+
+            <p>
+                An interactive tutoring system with dashboards, progress tracking,
+                and structured learning workflows.
+            </p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li>Login/register</li>
+                <li>Learner dashboard</li>
+                <li>Tutor dashboard</li>
+                <li>Quiz/progress tracking</li>
+                <li>Rewards system</li>
+            </ul>
+
+            <h3>Tech Stack</h3>
+            <ul class="chip-list">
+                <li>Python</li>
+                <li>Flask</li>
+                <li>HTML/CSS</li>
+                <li>JavaScript</li>
+                <li>SQLite</li>
+                <li>Git</li>
+            </ul>
+
+            <a href="{{ url_for('pages.project_detail', slug='GibJohn') }}" class="btn">View Project</a>
+        </div>
+
+        <div class="project-card">
+            <p class="project-type">Community marketplace platform</p>
+            <h2>🏘 Greenfield Local Hub</h2>
+
+            <p>
+                A community-focused marketplace platform designed to improve access
+                to local produce, services, and information.
+            </p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li>Farmers market</li>
+                <li>Checkout system</li>
+                <li>Customer dashboard</li>
+                <li>Admin product management</li>
+                <li>Stock updates</li>
+                <li>Order tracking</li>
+            </ul>
+
+            <h3>Tech Stack</h3>
+            <ul class="chip-list">
+                <li>Python</li>
+                <li>Flask</li>
+                <li>HTML/CSS</li>
+                <li>JavaScript</li>
+                <li>SQLite</li>
+                <li>Git</li>
+            </ul>
+
+            <a href="{{ url_for('pages.project_detail', slug='GLH') }}" class="btn">View Project</a>
+        </div>
+
+        <div class="project-card">
+            <p class="project-type">Green technology platform</p>
+            <h2>🌐 Rolsa Technologies</h2>
+
+            <p>
+                A green technology platform exploring product information, booking
+                concepts, energy tools, and accessible digital design.
+            </p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li>Product information</li>
+                <li>Consultation booking concept</li>
+                <li>Carbon footprint tools</li>
+                <li>Energy usage tracking concept</li>
+                <li>Accessibility-focused design</li>
+            </ul>
+
+            <h3>Tech Stack</h3>
+            <ul class="chip-list">
+                <li>Python</li>
+                <li>Flask</li>
+                <li>HTML/CSS</li>
+                <li>JavaScript</li>
+                <li>SQLite</li>
+                <li>Git</li>
+            </ul>
+
+            <a href="{{ url_for('pages.project_detail', slug='Rolsa-Tech') }}" class="btn">View Project</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="section-panel">
+    <h2>Skills Demonstrated</h2>
+
+    <p>
+        Across these projects, I have worked with authentication, database modelling,
+        routing, validation, responsive interfaces, accessibility, testing, and system documentation.
+    </p>
+
+    <ul class="chip-list">
+        <li>Authentication</li>
+        <li>Flask Routing</li>
+        <li>SQL Databases</li>
+        <li>CRUD Systems</li>
+        <li>Dashboards</li>
+        <li>Testing</li>
+        <li>Accessibility</li>
+        <li>Responsive Design</li>
+    </ul>
+</section>
+
+<section class="section-panel contact-cta">
+    <h2>Interested in working together?</h2>
+
+    <p>
+        I'm continuing to develop practical systems and improve my full-stack ability
+        through real projects.
+    </p>
+
+    <div class="cta-buttons">
+        <a href="{{ url_for('pages.contact') }}" class="btn">Contact Me</a>
+        <a href="https://github.com/TYPZ-Y2K" class="btn btn-secondary">View GitHub</a>
+    </div>
+</section>
+
+{% endblock %}

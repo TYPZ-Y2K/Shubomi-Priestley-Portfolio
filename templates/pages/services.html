@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Services - Shubomi Priestley's Portfolio{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}">
+{% endblock %}
+
+{% block content %}
+<header class="hero">
+    <p class="eyebrow">What I Offer</p>
+    <h1>Services</h1>
+</header>
+<section class="section-panel">
+    <p class="hero-text">
+        I offer a range of services focused on building clean, scalable digital systems for businesses, organisations, and community-driven projects. My expertise includes:
+    </p>
+
+    <ul class="services-list">
+        <li><strong>Full Stack Web Development:</strong> Custom web applications using Flask and modern web technologies</li>
+        <li><strong>Website Design & Development:</strong> Responsive, clean, user-focused websites</li>
+        <li><strong>Dashboard & Internal Systems:</strong> Admin dashboards, data systems, and internal tools</li>
+        <li><strong>Authentication & Booking Systems:</strong> Login systems, role-based access, booking workflows</li>
+        <li><strong>Consultation & Project Planning:</strong> Technical consultation, project scoping, and architecture planning</li>
+    </ul>
+    <p>
+        If you're interested in working together or have a project in mind, please don't hesitate to <a href="{{ url_for('pages.contact') }}">get in touch</a>.
+    </p>
+</section>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}{{ project.title }} - Shubomi Priestley's Portfolio{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/project-details.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<header class="hero">
+    <h1>{{ project.title }}</h1>
+    <p class="hero-text">{{ project.description }}</p>
+</header>
+<div class="project-detail">
+    <section class="section-panel project-media">
+        <h2>Project Media</h2>
+
+        <div class="media-grid">
+            <img src="#" alt="{{ project.title }} homepage screenshot">
+            <img src="#" alt="{{ project.title }} dashboard screenshot">
+        </div>
+
+        <video controls class="project-video">
+            <source src="#" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <section class="section-panel">
+        <h2>Key Features</h2>
+        <ul>
+            {% for feature in project.features %}
+                <li>{{ feature }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="section-panel">
+        <h2>Tech Stack</h2>
+        <ul class="chip-list">
+            {% for tech in project.tech %}
+                <li>{{ tech }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+</div>
+
+
+{% endblock %}

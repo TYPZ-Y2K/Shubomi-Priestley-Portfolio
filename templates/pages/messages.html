@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Messages</h1>
+
+{% for msg in messages %}
+<div class="section-panel">
+    <p><strong>Name:</strong> {{ msg.name }}</p>
+    <p><strong>Email:</strong> {{ msg.email }}</p>
+    <p><strong>Message:</strong> {{ msg.message }}</p>
+    <p><small>{{ msg.timestamp }}</small></p>
+</div>
+{% endfor %}
+
+{% endblock %}
