@@ -1,13 +1,13 @@
 from . import pages_bp as bp
 from .forms import ContactForm
-from flask import flash, render_template, request
+from flask import flash, render_template, request, redirect, url_for
 from models import ContactMessage
 from extensions import db
 
 
 project_data = [
     {
-        "slug": "Riget-Zoo",
+        "slug": "riget-zoo",
         "title": "Riget Zoo Adventures",
         "description": "A full-stack tourism and booking platform.",
         "features": [
@@ -16,13 +16,13 @@ project_data = [
             "User authentication",
             "Admin dashboard"
         ],
-        "image 1": ("static/images/RZA dashboard.webp"),
-        "image 2": ("static/images/Rolsa Technologies home.webp"),
-        "screencast": ("https://youtu.be/mKC6R2cN0rA"),
+        "image_1": "images/projects/RZA-home.webp",
+        "image_2": "images/projects/RZA-dashboard.webp",
+        "screencast": "https://www.youtube.com/embed/mKC6R2cN0rA",
         "tech": ["Python", "Flask", "JavaScript", "SQLite"]
     },
     {
-        "slug": "GibJohn",
+        "slug": "gibjohn",
         "title": "GibJohn Tutoring Platform",
         "description": "An interactive tutoring system.",
         "features": [
@@ -30,13 +30,13 @@ project_data = [
             "Dashboards",
             "Quiz tracking"
         ],
-        "image 1": ("static/images/GibJohn home.webp"),
-        "image 2": ("static/images/GibJohn dashboard.webp"),
-        "screencast": ("https://youtu.be/example"),
+        "image_1": "images/projects/GibJohn-home.webp",
+        "image_2": "images/projects/GibJohn-dashboard.webp",
+        "screencast": "",
         "tech": ["Python", "Flask", "JavaScript", "SQLite"]
     },
     {
-        "slug": "Rolsa-Tech",
+        "slug": "rolsa-tech",
         "title": "Rolsa Technologies",
         "description": "Green technology platform.",
         "features": [
@@ -46,39 +46,28 @@ project_data = [
             "Energy usage tracking concept",
             "Accessibility-focused design"
         ],
-        "image 1": ("static/images/Rolsa Technologies home.webp"),
-        "image 2": ("static/images/Rolsa Technologies dashboard.webp"),
-        "screencast": ("https://youtu.be/DSJ5JVAUx4o"),
-        "tech": ["Python", "Flask", "JavaScript", "SQLite"]
-    },
-    {
-        "slug": "GLH",
-        "title": "Greenfield Local Hub",
-        "description": "Community marketplace platform.",
-        "features": [
-            "Farmers market",
-            "Checkout system",
-            "Customer dashboard",
-            "Admin product management",
-            "Stock updates",
-            "Order tracking"
-        ],
-        "screencast": ("https://youtu.be/example"),
+        "image_1": "images/projects/Rolsa-home.webp",
+        "image_2": "images/projects/Rolsa-dashboard.webp",
+        "screencast": "https://www.youtube.com/embed/DSJ5JVAUx4o",
         "tech": ["Python", "Flask", "JavaScript", "SQLite"]
     }
 ]
+
 
 @bp.route("/")
 def home():
     return render_template("pages/home.html")
 
+
 @bp.route("/about")
 def about():
     return render_template("pages/about.html")
 
+
 @bp.route("/projects")
 def projects():
-    return render_template("pages/projects.html")
+    return render_template("pages/projects.html", projects=project_data)
+
 
 @bp.route("/projects/<slug>")
 def project_detail(slug):
@@ -89,28 +78,33 @@ def project_detail(slug):
 
     return render_template("pages/project-details.html", project=project)
 
+
 @bp.route("/contact", methods=["GET", "POST"])
 def contact():   
     form = ContactForm()
 
-    if request.method == "POST":
-        name = form.name.data
-        email = form.email.data
-        message = form.message.data
-
-        if form.validate_on_submit():
-            new_message = ContactMessage(
-                name=name,
-                email=email,
-                message=message
-            )
+    if form.validate_on_submit():
+        new_message = ContactMessage(
+            name=form.name.data,
+            email=form.email.data,
+            message=form.message.data
+        )
 
         db.session.add(new_message)
         db.session.commit()
 
         flash("Message sent successfully!", "success")
+        return redirect(url_for("pages.contact"))
+
     return render_template("pages/contact.html", form=form)
+
 
 @bp.route("/services")
 def services():
-    return render_template("pages/services.html") 
+    return render_template("pages/services.html")
+
+
+@bp.route("/messages")
+def messages():
+    messages = ContactMessage.query.order_by(ContactMessage.created_at.desc()).all()
+    return render_template("pages/messages.html", messages=messages)
