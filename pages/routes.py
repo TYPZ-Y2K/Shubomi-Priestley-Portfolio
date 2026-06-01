@@ -16,6 +16,9 @@ project_data = [
             "User authentication",
             "Admin dashboard"
         ],
+        "image 1": ("static/images/RZA dashboard.webp"),
+        "image 2": ("static/images/Rolsa Technologies home.webp"),
+        "screencast": ("https://youtu.be/mKC6R2cN0rA"),
         "tech": ["Python", "Flask", "JavaScript", "SQLite"]
     },
     {
@@ -27,6 +30,9 @@ project_data = [
             "Dashboards",
             "Quiz tracking"
         ],
+        "image 1": ("static/images/GibJohn home.webp"),
+        "image 2": ("static/images/GibJohn dashboard.webp"),
+        "screencast": ("https://youtu.be/example"),
         "tech": ["Python", "Flask", "JavaScript", "SQLite"]
     },
     {
@@ -40,6 +46,9 @@ project_data = [
             "Energy usage tracking concept",
             "Accessibility-focused design"
         ],
+        "image 1": ("static/images/Rolsa Technologies home.webp"),
+        "image 2": ("static/images/Rolsa Technologies dashboard.webp"),
+        "screencast": ("https://youtu.be/DSJ5JVAUx4o"),
         "tech": ["Python", "Flask", "JavaScript", "SQLite"]
     },
     {
@@ -54,6 +63,7 @@ project_data = [
             "Stock updates",
             "Order tracking"
         ],
+        "screencast": ("https://youtu.be/example"),
         "tech": ["Python", "Flask", "JavaScript", "SQLite"]
     }
 ]
